@@ -1,1 +1,41 @@
-<p>formfilter works!</p>
+<div style="margin: 15px;background: beige; padding: 15px">
+    <select class="form-control" id="selector" (change)="eventoSelector($event)">
+            <option *ngFor= "let hotel of hotels" value="{{hotel.id}}">
+                {{hotel.name}}
+            </option>
+    </select>
+</div>
+
+<div *ngFor="let hotel of filteredHotel; index as i">
+        <div class="card" style="max-width: 540px;">
+                <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">{{hotel.name}}</h5>
+                            <img src="assets/recursos/assets/images/hotels/{{hotel.image}}" class="card-img" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <ul>
+                                        <div *ngFor="let ame of hotel.amenities">
+                                            <img style="height:20px" src="assets/recursos/assets/icons/amenities/{{ame}}.svg" class="card-img" alt="...">
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="col">
+                                    <ul>
+                                        <div *ngFor='let i of arrayNumbers'>
+                                            <div *ngIf="hotel.stars >= i">
+                                                <img style="height:20px" src="assets/recursos/assets/icons/filters/star.svg" class="card-img" alt="...">
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text">Precio noche: $ {{hotel.price}}</p>
+                        </div>
+                    </div>
+        </div>
+    </div>

@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class MyserviceService {
 
   public URI: string = "http://localhost:3000/";
+  public URINAME: string = "http://localhost:3000/api/";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,4 +22,9 @@ export class MyserviceService {
   deleteHotel(id){
     return this.httpClient.get(this.URI + id)
   }
+
+  getHotelByName(name){
+    return this.httpClient.get(this.URINAME + name)
+  }
+
 }

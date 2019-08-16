@@ -27,7 +27,7 @@ export class ViewhotelsComponent implements OnInit {
 
   getHotelData(id){
     this.service.getHotelData(id).subscribe(res => {
-      this.selectedHotel = res
+      this.selectedHotel = res[0]
     })
   }
 
