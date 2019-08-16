@@ -1,0 +1,59 @@
+<ul class="gridView">
+    <div *ngFor="let hotel of hotels; index as i">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="assets/recursos/assets/images/hotels/{{hotel.image}}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-header">
+                        <h5 class="card-title">{{hotel.name}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <ul>
+                                    <div *ngFor="let ame of hotel.amenities">
+                                        <img style="height:20px" src="assets/recursos/assets/icons/amenities/{{ame}}.svg" class="card-img" alt="...">
+                                    </div>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <ul>
+                                    <div *ngFor='let i of arrayNumbers'>
+                                        <div *ngIf="hotel.stars >= i">
+                                            <img style="height:20px" src="assets/recursos/assets/icons/filters/star.svg" class="card-img" alt="...">
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text">Precio noche: $ {{hotel.price}}</p>
+                        
+                        <button type="button" (click)="getHotelData(hotel.id)" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Ver Hotel
+                        </button>
+
+
+                        <div class="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-title" id="exampleModalLabel">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body"> 
+                                        <img src="assets/recursos/assets/images/hotels/{{selectedHotel.image}}" class="card-img" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ul>
